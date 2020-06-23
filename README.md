@@ -1,24 +1,83 @@
-# README
+# Grayce Demo App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
+This guide assumes OSX, but may work on any \*nix system with minor tweaks.
 
-Things you may want to cover:
+### Base dependencies
+* Ruby 2.7.1
+* Bundler 2.1.x
+* Postgres 12.x
+* Redis 6.x
+* node 14.x
+* yarn 1.22.x
+* Chromedriver 83.x
 
-* Ruby version
+You can install these any way you want, but brew is a fast and easy way to do it.
+Install [brew](https://brew.sh/) if you don't already have it.
 
-* System dependencies
+```
+brew install rbenv
+brew install postgresql
+brew install redis
+brew install node
+brew install yarn
+brew cask install chromedriver
+rbenv install 2.7.1
+```
 
-* Configuration
+### Clone repo
+```
+git clone git@github.com:withgrayce/grayce-demo.git
+cd grayce-demo
+bundle
+yarn
+```
 
-* Database creation
+### Init data
+There are scripts to generate a set of fake data for use in dev/staging.
 
-* Database initialization
+```
+./bin/rails \
+    db:drop \
+    db:create \
+    db:structure:load \
+    db:migrate \
+    db:test:prepare \
+    db:seed
+```
 
-* How to run the test suite
+### Test suite
+The test suite should now work
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+rspec
+```
 
-* Deployment instructions
+### Running the app
+You can run the Rails application with:
 
-* ...
+```
+./bin/rails server
+```
+
+## Task
+Grayce uses Care Journeys to communicate the current care situation, concerns, and goals.
+A care journey has the following data
+
+* Summary of care situation
+* Summary of goals
+* Stage:
+  * Independant
+  * Interdependent
+  * Dependent
+  * Crisis
+  * Griefing
+
+Additionally care plans have "action plans", which have a title and summary and can be marked as complete by a user.
+
+### Admin
+The goal is to allow an admin user to build a care plan for a user.
+
+### User
+
+The care plan is then displayed to the user, who can mark care tasks as complete.
