@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Demo</title>
+    <title>Grayce Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= favicon_link_tag(asset_pack_path("media/images/icon.svg")) %>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag("application") %>
+    <%= stylesheet_pack_tag("styles", media: "all") %>
   </head>
 
   <body>
+    <%= render("layouts/flashes") %>
     <%= yield %>
   </body>
 </html>
