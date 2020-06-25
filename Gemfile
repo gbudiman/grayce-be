@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 gem 'awesome_print'
+gem 'faker'
 gem 'oj'
 gem 'pg'
 gem 'puma'
@@ -16,7 +17,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
-  gem 'faker'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
