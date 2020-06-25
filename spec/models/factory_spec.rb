@@ -1,7 +1,7 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.describe "Factories" do
-  it "lints" do
+RSpec.describe 'Factories' do
+  it 'lints' do
     FactoryBot.lint
   end
 end
